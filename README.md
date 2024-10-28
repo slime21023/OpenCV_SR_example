@@ -25,6 +25,8 @@ image = cv2.imread('./input.png')
 result = sr.upsample(image)
 ```
 
+need to take care about the upsampling ratio and the model you use.
+
 ## Models
 
 | Model Name | Performance | Model Size |

@@ -9,7 +9,7 @@ _path = {
     "fsrcnn": _ml_model_dir / "FSRCNN_x3.pb",
     "espcn": _ml_model_dir / "ESPCN_x3.pb",
     "edsr": _ml_model_dir / "EDSR_x4.pb",
-    "lapsrn": _ml_model_dir / "LapSRN_x4.pb",
+    "lapsrn": _ml_model_dir / "LapSRN_x2.pb",
 }
 
 _sr = cv2.dnn_superres.DnnSuperResImpl_create()
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     assets_dir = Path(assets.__file__).parent
     image = cv2.imread(assets_dir / "image.png", cv2.COLOR_BGR2RGB)
     print(image.shape, image.dtype)
-    sr = useModel("edsr", upsampling_ratio=3)
+    sr = useModel("espcn", upsampling_ratio=3)
 
     result = sr.upsample(image)
 
